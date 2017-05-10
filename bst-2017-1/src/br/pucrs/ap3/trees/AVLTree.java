@@ -82,6 +82,19 @@ public class AVLTree {
 		} else {
 			node.left = add0(node.left, value);
 			// TODO: AVL
+                        int delta = getHeight(node.left) 
+					- getHeight(node.right);
+                        System.out.printf(
+					"add0::Key=%d, Delta=%d\n", 
+					node.key, delta);
+                        if(delta == 2){
+                            if (value < node.left.key)
+                                node = rotateRight(node);
+                            else {
+                                node.left = rotateLeft(node.left);
+                                node = rotateRight(node);
+                            }
+                        }
 		}
 		// Atualizar altura em cada nodo...
 		int hl = getHeight(node.left);
@@ -91,9 +104,11 @@ public class AVLTree {
 		return node;
 	}
 
-	private AVLNode rotateRight(AVLNode right) {
-		// TODO completar!
-		return null;
+	private AVLNode rotateRight(AVLNode k1) {
+		AVLNode k2 = k1.left;
+		k1.left = k2.right;
+		k2.right = k1;
+		return k2;
 	}
 
 	private AVLNode rotateLeft(AVLNode k1) {

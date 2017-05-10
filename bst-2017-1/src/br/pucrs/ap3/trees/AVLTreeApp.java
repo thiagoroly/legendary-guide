@@ -18,6 +18,11 @@ public class AVLTreeApp {
 		System.out.println(bst.size());
 		//bst.reportLevel();
 		bst.reportHeight();
+		bst.add(30);
+		System.out.println(bst);
+		System.out.println(bst.size());
+		//bst.reportLevel();
+		bst.reportHeight();
 		bst.add(10);
 		System.out.println(bst);
 		System.out.println(bst.size());
@@ -28,10 +33,6 @@ public class AVLTreeApp {
 		System.out.println(bst.size());
 		//bst.reportLevel();
 		bst.reportHeight();
-		bst.add(30);
-		System.out.println(bst);
-		System.out.println(bst.size());
-		//bst.reportLevel();
-		bst.reportHeight();
+                
 	}
 }
